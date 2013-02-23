@@ -1,13 +1,13 @@
 var AutoCompleteItemView = Backbone.View.extend({
     tagName: "li",
-    template: '<a href="#"><%= label %></a>',
+    template: _.template('<a href="#"><%= label %></a>'),
 
     events: {
         "click": "select"
     },
 
     render: function () {
-        this.$el.html(_.template(this.template, {
+        this.$el.html(this.template({
             "label": this.model.label()
         }));
         return this;
