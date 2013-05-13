@@ -68,6 +68,7 @@ var AutoCompleteView = Backbone.View.extend({
     },
 
     filter: function (keyword) {
+    	var keyword = keyword.toLowerCase();
         if (this.model.url) {
 
             var parameters = {};
@@ -82,7 +83,7 @@ var AutoCompleteView = Backbone.View.extend({
 
         } else {
             this.loadResult(this.model.filter(function (model) {
-                return model.label().indexOf(keyword) > -1
+                return model.label().toLowerCase().indexOf(keyword) !== -1
             }), keyword);
         }
     },
