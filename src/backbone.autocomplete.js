@@ -42,8 +42,8 @@ var AutoCompleteView = Backbone.View.extend({
         this.$el.width(this.input.outerWidth());
 
         this.input
-            .keyup(this.keyup.bind(this))
-            .keydown(this.keydown.bind(this))
+            .keyup(_.bind(this.keyup, this))
+            .keydown(_.bind(this.keydown, this))
             .after(this.$el);
 
         return this;
