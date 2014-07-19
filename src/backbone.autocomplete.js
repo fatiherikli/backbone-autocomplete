@@ -82,7 +82,11 @@ var AutoCompleteView = Backbone.View.extend({
                 success: _.bind(function () { // tkes, _.bind instead of .bind()
                     this.loadResult(this.model.models, keyword);
                 }, this),
-                data: parameters
+                data: parameters,
+                // tkes, some more params
+                cache: (typeof this.model.cache != 'undefined') ? this.model.cache : undefined,
+                dataType: (this.model.datatype) ? this.model.datatype : undefined,
+                jsonpCallback: (this.model.callback) ? this.model.callback : undefined
             });
 
         } else {
