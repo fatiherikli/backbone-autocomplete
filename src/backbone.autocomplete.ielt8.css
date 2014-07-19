@@ -1,0 +1,7 @@
+/* tkes, IE<8 */
+form.autocomplete-ielt8 {
+	position: relative;
+}
+input.autocomplete-ielt8 {
+	display: block;
+}
