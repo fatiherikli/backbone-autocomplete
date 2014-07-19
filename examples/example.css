@@ -1,0 +1,55 @@
+body {
+	margin: 0 0 120px;
+	font-family: helvetica, sans-serif;
+	font-size: 25px;
+}
+input {
+	font-size: 17px;
+	padding: 3px;
+	margin: 0;
+	outline: none;
+}
+div {
+	width: 890px;
+	margin: auto;
+}
+div {
+	overflow: hidden;
+}
+div h3, div h4 {
+	color: #424242;
+	margin: 30px 0 10px;
+}
+div h4 {
+	font-size: 20px;
+}
+div p {
+	margin: 5px 0;
+	font-size: 18px;
+	color: #525252;
+}
+div form input {
+	width: 350px;
+	font-size: 20px;
+	padding: 10px;
+}
+#example, #selected {
+	width: 417px;
+	float: left;
+	margin-right: 55px;
+}
+#selected {
+	display: none;
+	margin: 0;
+}
+#selected p {
+	margin: 0;
+	width: 430px;
+	padding: 10px;
+	background-color: #fafafa;
+	color: #404040;
+}
+p a {
+	color: #4b4b4b;
+	text-decoration: none;
+}
