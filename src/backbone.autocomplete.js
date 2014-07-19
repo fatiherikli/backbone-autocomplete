@@ -79,9 +79,9 @@ var AutoCompleteView = Backbone.View.extend({
             parameters[this.queryParameter] = keyword;
 
             this.model.fetch({
-                success: function () {
+                success: _.bind(function () { // tkes, _.bind instead of .bind()
                     this.loadResult(this.model.models, keyword);
-                }.bind(this),
+                }, this),
                 data: parameters
             });
 
