@@ -68,6 +68,7 @@ var AutoCompleteView = Backbone.View.extend({
             } else {
                 this.hide()
             }
+            this.currentText = keyword; // tkes, moved here from loadResult
         }
     },
 
@@ -121,7 +122,6 @@ var AutoCompleteView = Backbone.View.extend({
     },
 
     loadResult: function (model, keyword) {
-        this.currentText = keyword;
         this.show().reset();
         if (model.length) {
             _.forEach(model, this.addItem, this);
