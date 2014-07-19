@@ -1,0 +1,11 @@
+[
+	{"name": "backbone-autocomplete"},
+	{"name": "backbone-memento"},
+	{"name": "backbone-validations"},
+	{"name": "backbone-chosen"},
+	{"name": "backbone-relational"},
+	{"name": "backbone-bindings"},
+	{"name": "backbone-boilerplate"},
+	{"name": "backbone-traversal"},
+	{"name": "backbone-factory"}
+]
