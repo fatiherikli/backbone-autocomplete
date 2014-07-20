@@ -1,6 +1,6 @@
 {
-  "name": "fatiherikli/backbone-autocomplete",
-  "version": "1.0.1",
+  "name": "tkes/backbone-autocomplete",
+  "version": "1.1.1",
   "description": "An autocomplete view for backbone.js",
   "main": "src/backbone.autocomplete-min.js",
   "ignore": [

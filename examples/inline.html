@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>json inline - Backbone.AutoCompleteView</title>
+	<link rel="stylesheet" href="example.css" />
+	<link rel="stylesheet" href="../src/backbone.autocomplete.css" />
+</head>
+<body>
+
+<div>
+	<div id="example">
+		<h3>Example - json inline</h3>
+		<form action="#">
+			<input type="text" placeholder="Select a plugin (type backbone)" id="plugin" />
+		</form>
+	</div>
+	<div id="selected">
+		<h3>Selected Item</h3>
+		<p></p>
+	</div>
+</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="//underscorejs.org/underscore-min.js"></script>
+<script type="text/javascript" src="//backbonejs.org/backbone-min.js"></script>
+<script type="text/javascript" src="../src/backbone.autocomplete.js"></script>
+<script type="text/javascript">
+	$(function () {
+
+		var Plugin = Backbone.Model.extend({
+			label: function () {
+				return this.get("name");
+			}
+		});
+
+		var PluginCollection = Backbone.Collection.extend({
+			model: Plugin
+		});
+
+		var plugins = new PluginCollection([
+			{"name": "backbone-autocomplete"},
+			{"name": "backbone-memento"},
+			{"name": "backbone-validations"},
+			{"name": "backbone-chosen"},
+			{"name": "backbone-relational"},
+			{"name": "backbone-bindings"},
+			{"name": "backbone-boilerplate"},
+			{"name": "backbone-traversal"},
+			{"name": "backbone-factory"},
+			{"name": "jquery"},
+			{"name": "jquery-ui"},
+			{"name": "angular.js"},
+			{"name": "keymaster.js"}
+		]);
+
+		new AutoCompleteView({
+			input: $("#plugin"),
+			model: plugins,
+			onSelect: function (model) {
+				$("#selected").show().find("p").html(model.label());
+			},
+			highlight: "classname"	// optional, wrap keyword in <b class="classname"></b>
+		}).render();
+
+	});
+</script>
+
+<!-- optional, if IE<8 compatibility is required -->
+<!--[if lt IE 8]>
+	<link rel="stylesheet" href="../src/backbone.autocomplete.ielt8.css" />
+	<div>
+		<h4>IE&lt;8 compatibility</h4>
+		<p>For dropdown position fix add conditional stylesheet <code>..ielt8.css</code> to <code>&lt;head&gt;</code> and<br /><code>class="autocomplete-ielt8"</code> to <code>&lt;input&gt;</code> and its parent element, usually <code>&lt;form&gt;</code></p>
+	</div>
+	<script type="text/javascript">
+		/* if you support IE<8, add class directly to input & form tag, do not use this hack: */
+		$(function () { $('form, input').addClass('autocomplete-ielt8') });
+	</script>
+<![endif]-->
+
+</body>
+</html>
