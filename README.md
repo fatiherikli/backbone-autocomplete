@@ -3,6 +3,7 @@
 An auto-complete widget built with Backbone.js
 
 * 1.1.0: Some bugs fixed, features and ajax-examples added, works even on IE7 now...
+* 1.1.1: New param `highlight: "classname"`, if not empty, wrap keyword in <b class="classname"></b>
 
 #### Examples
 
@@ -27,7 +28,8 @@ new AutoCompleteView({
 	model: plugins,
 	onSelect: function (model) {
 		$("#selected").show().find("p").html(model.label());
-	}
+	},
+	highlight: "classname"	// optional, wrap keyword in <b class="classname"></b>
 }).render();
 ```
 
@@ -54,7 +56,8 @@ new AutoCompleteView({
 	model: plugins,
 	onSelect: function (model) {
 		$("#selected").show().find("p").html(model.label());
-	}
+	},
+	highlight: "classname"	// optional, wrap keyword in <b class="classname"></b>
 }).render();
 ```
 
