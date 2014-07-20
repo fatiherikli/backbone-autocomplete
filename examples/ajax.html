@@ -46,7 +46,8 @@
 			model: plugins,
 			onSelect: function (model) {
 				$("#selected").show().find("p").html(model.label());
-			}
+			},
+			highlight: "classname"	// optional, wrap keyword in <b class="classname"></b>
 		}).render();
 
 	});
@@ -64,13 +65,6 @@
 		$(function () { $('form, input').addClass('autocomplete-ielt8') });
 	</script>
 <![endif]-->
-
-<div>
-	<h4>Contribution &amp; Examples</h4>
-	<p><a href="https://github.com/tkes/backbone-autocomplete">https://github.com/tkes/backbone-autocomplete</a></p>
-	<h4>Based on</h4>
-	<p><a href="https://github.com/fatiherikli/backbone-autocomplete">https://github.com/fatiherikli/backbone-autocomplete</a></p>
-</div>
 
 </body>
 </html>
