@@ -12,9 +12,22 @@ var AutoCompleteItemView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template({
-            "label": this.model.label()
+            "label": this.highlight(this.model.label())
         }));
         return this;
+    },
+	
+    highlight: function (label) {    // tkes, highlight keyword in result
+        var op = this.options.parent;
+        if (label && op.highlight && op.currentText) {
+            label = label.replace(
+                new RegExp(op.currentText, "gi"),
+                function (matched) {
+                    return '<b class="' + op.highlight + '">' + matched + '</b>'
+                }
+            );
+        }
+        return label;
     },
 
     select: function () {
@@ -33,6 +46,7 @@ var AutoCompleteView = Backbone.View.extend({
     minKeywordLength: 2,
     currentText: "",
     itemView: AutoCompleteItemView,
+    highlight: "",
 
     initialize: function (options) {
         _.extend(this, options);
