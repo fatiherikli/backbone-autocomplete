@@ -23,7 +23,7 @@ var AutoCompleteItemView = Backbone.View.extend({
             label = label.replace(
                 new RegExp(this.escapeRegExp(op.currentText), "gi"),
                 function (matched) {
-                    return $('<b>').addClass(op.highlight).html(matched);
+                    return $('<b>').addClass(op.highlight).html(matched).prop('outerHTML');
                 }
             );
         }
@@ -68,7 +68,6 @@ var AutoCompleteView = Backbone.View.extend({
             .keyup(_.bind(this.keyup, this))
             .keydown(_.bind(this.keydown, this))
             .after(this.$el)
-            .blur($.proxy(this.blur, this))
         ;
 
         return this;
@@ -79,10 +78,6 @@ var AutoCompleteView = Backbone.View.extend({
         if (event.keyCode == 40) return this.move(+1);
         if (event.keyCode == 13) return this.onEnter();
         if (event.keyCode == 27) return this.hide();
-    },
-
-    blur: function() {
-        this.hide();
     },
 
     keyup: function () {
